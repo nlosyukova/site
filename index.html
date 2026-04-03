@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury / EdTech — Курсы иностранных языков</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d14;
+      --bg-2: #0e1320;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f5f7fb;
+      --muted: #aab3c5;
+      --gold: #d6b36a;
+      --gold-soft: #f0d8a0;
+      --blue: #79b8ff;
+      --accent: linear-gradient(135deg, #f0d8a0 0%, #d6b36a 35%, #79b8ff 100%);
+      --accent-soft: linear-gradient(135deg, rgba(214,179,106,.18), rgba(121,184,255,.14));
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --maxw: 1220px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(214,179,106,.16), transparent 28%),
+        radial-gradient(circle at 100% 10%, rgba(121,184,255,.14), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(214,179,106,.08), transparent 30%),
+        linear-gradient(180deg, #06080f 0%, #0b1018 45%, #090d14 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+      opacity: .35;
+    }
+
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(9, 13, 20, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #0b0f17;
+      font-weight: 800;
+      background: var(--accent);
+      box-shadow: 0 10px 30px rgba(214,179,106,.24);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      text-decoration: none;
+      color: #111;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: var(--accent);
+      transition: .3s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(214,179,106,.22);
+    }
+
+    .hero {
+      padding: 88px 0 58px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(214,179,106,.22);
+      background: rgba(214,179,106,.08);
+      color: var(--gold-soft);
+      font-size: .92rem;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+      font-weight: 800;
+      margin-bottom: 22px;
+      background: linear-gradient(90deg, rgba(255,255,255,.97), rgba(240,216,160,.96), rgba(121,184,255,.94));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 22px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .btn-primary {
+      color: #0b0f17;
+      background: var(--accent);
+      box-shadow: 0 18px 40px rgba(214,179,106,.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 46px rgba(214,179,106,.24);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(214,179,106,.35);
+      background: rgba(255,255,255,.06);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-chip {
+      padding: 11px 14px;
+      border-radius: 999px;
+      color: #d9e3f4;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.04);
+      font-size: .93rem;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,.1);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(240,216,160,.35), rgba(121,184,255,.18), rgba(255,255,255,.04));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .hero-card-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    .hero-card-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(214,179,106,.12);
+      color: var(--gold-soft);
+      border: 1px solid rgba(214,179,106,.22);
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .mini-panel {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(214,179,106,.08), rgba(121,184,255,.08));
+      border: 1px solid rgba(255,255,255,.08);
+      color: #dde6f5;
+      font-size: .95rem;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .35s ease;
+      overflow: hidden;
+    }
+
+    .feature::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -35% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214,179,106,.18), transparent 60%);
+      opacity: 0;
+      transition: .35s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-8px);
+      border-color: rgba(214,179,106,.28);
+      box-shadow: 0 18px 45px rgba(0,0,0,.24);
+    }
+
+    .feature:hover::after {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      font-size: 22px;
+      background: linear-gradient(135deg, rgba(214,179,106,.18), rgba(121,184,255,.14));
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .feature h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .courses-wrap {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .courses-lead {
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(214,179,106,.11), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+    }
+
+    .courses-lead h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .courses-lead p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .courses-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .course-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(121,184,255,.25);
+    }
+
+    .course-card .num {
+      display: inline-flex;
+      margin-bottom: 14px;
+      font-size: .82rem;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--gold-soft);
+      background: rgba(214,179,106,.1);
+      border: 1px solid rgba(214,179,106,.2);
+    }
+
+    .course-card h4 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+    }
+
+    .course-card p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .case {
+      position: relative;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.09);
+      overflow: hidden;
+    }
+
+    .case::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(214,179,106,.09), transparent 40%, rgba(121,184,255,.08));
+      pointer-events: none;
+    }
+
+    .case-label {
+      position: relative;
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .82rem;
+      color: var(--gold-soft);
+      background: rgba(214,179,106,.1);
+      border: 1px solid rgba(214,179,106,.2);
+    }
+
+    .case h3,
+    .case p {
+      position: relative;
+    }
+
+    .case h3 {
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+    }
+
+    .case p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .tools-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tool {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      color: #e5ebf8;
+      transition: .25s ease;
+    }
+
+    .tool:hover {
+      transform: translateY(-3px);
+      border-color: rgba(214,179,106,.28);
+      background: rgba(214,179,106,.08);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .result-card {
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      min-height: 190px;
+    }
+
+    .result-card strong {
+      display: block;
+      font-size: 1.75rem;
+      margin-bottom: 12px;
+      font-family: "Manrope", sans-serif;
+      background: linear-gradient(90deg, #ffffff, #f0d8a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .result-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .result-card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .cta {
+      padding: 0 0 70px;
+    }
+
+    .cta-box {
+      position: relative;
+      border-radius: 36px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.09);
+      background:
+        radial-gradient(circle at left top, rgba(214,179,106,.18), transparent 28%),
+        radial-gradient(circle at right bottom, rgba(121,184,255,.16), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.02;
+      margin-bottom: 16px;
+      letter-spacing: -.035em;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 24px;
+      font-size: 1.02rem;
+    }
+
+    .footer {
+      padding: 0 0 28px;
+      text-align: center;
+      color: rgba(255,255,255,.48);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .courses-wrap,
+      .features-grid,
+      .cases-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .courses-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .features-grid,
+      .cases-grid,
+      .results-grid,
+      .courses-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero h1 {
+        font-size: 2.45rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .courses-lead,
+      .cta-box,
+      .feature,
+      .case,
+      .result-card {
+        padding: 22px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-mark">L</div>
+          <div>Lingua Atelier</div>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#advantages">Преимущества</a></li>
+          <li><a href="#courses">Курсы</a></li>
+          <li><a href="#cases">Кейсы</a></li>
+          <li><a href="#results">Результат</a></li>
+        </ul>
+
+        <a href="#trial" class="nav-cta">Пробное занятие</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Luxury learning experience · premium edtech</div>
+            <h1>Изучайте иностранные языки легко, эффективно и с удовольствием</h1>
+            <p>
+              Хотите свободно говорить на английском, испанском, немецком или другом языке?
+              Наши курсы созданы для тех, кто ценит высокий результат, интеллектуальный комфорт
+              и современный премиальный подход к обучению.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#trial" class="btn btn-primary">Записаться на бесплатное занятие</a>
+              <a href="#courses" class="btn btn-secondary">Посмотреть программы</a>
+            </div>
+
+            <div class="hero-meta">
+              <span class="meta-chip">Индивидуально и в мини-группах</span>
+              <span class="meta-chip">Онлайн / офлайн</span>
+              <span class="meta-chip">Под цели: работа, экзамены, переезд</span>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="hero-card-title">Премиальный формат обучения</div>
+              <div class="hero-card-badge">Luxury / EdTech</div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <strong>1-й урок</strong>
+                <span>Живая практика с первого занятия</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Фокус на реальном применении языка</span>
+              </div>
+              <div class="stat">
+                <strong>Гибко</strong>
+                <span>Комфортный график и формат</span>
+              </div>
+              <div class="stat">
+                <strong>Персонально</strong>
+                <span>Программа под вашу задачу</span>
+              </div>
+            </div>
+
+            <div class="mini-panel">
+              От экзаменов и международной карьеры до путешествий и переезда —
+              обучение адаптируется под ваш уровень, темп и личную цель.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advantages">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Почему выбирают нас</h2>
+          <p>
+            Четкая визуальная структура, профессиональная подача материала и продуманная система
+            обучения создают ощущение высокого сервиса и заметного результата.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature">
+            <div class="feature-icon">🗣</div>
+            <h3>Живой язык с первого занятия</h3>
+            <p>Вы начинаете говорить уже на первом уроке — без скучной теории и зубрежки.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🎓</div>
+            <h3>Преподаватели-практики</h3>
+            <p>Опытные преподаватели и носители языка объясняют сложное просто, ясно и современно.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">✨</div>
+            <h3>Гибкий формат обучения</h3>
+            <p>Онлайн и офлайн занятия, индивидуально или в группах — вы выбираете удобный формат.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🎯</div>
+            <h3>Программы под вашу цель</h3>
+            <p>Подготовка к экзаменам, переезд, работа за границей или путешествия — курс подстраивается под вас.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">⚙</div>
+            <h3>Современные методики</h3>
+            <p>Интерактивные задания, разговорная практика и реальные кейсы вместо устаревшей теории.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">📈</div>
+            <h3>Измеримый прогресс</h3>
+            <p>Уже через несколько недель вы замечаете рост уверенности, понимания и скорости речи.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Наши курсы</h2>
+          <p>
+            Выберите формат, который соответствует вашему ритму жизни, профессиональным задачам и уровню языка.
+          </p>
+        </div>
+
+        <div class="courses-wrap">
+          <div class="courses-lead">
+            <h3>Персонализированные образовательные треки</h3>
+            <p>
+              Мы не предлагаем шаблонное обучение. Каждая программа собирается вокруг вашей цели:
+              уверенное общение, международная карьера, экзамены, адаптация за границей или обучение детей.
+            </p>
+            <a href="#trial" class="btn btn-primary">Подобрать программу</a>
+          </div>
+
+          <div class="courses-list">
+            <div class="course-card">
+              <span class="num">01</span>
+              <h4>Общий разговорный язык</h4>
+              <p>Для свободного общения, уверенной речи и снятия языкового барьера.</p>
+            </div>
+
+            <div class="course-card">
+              <span class="num">02</span>
+              <h4>Бизнес-курс</h4>
+              <p>Для переговоров, деловой переписки, презентаций и международной коммуникации.</p>
+            </div>
+
+            <div class="course-card">
+              <span class="num">03</span>
+              <h4>Подготовка к международным экзаменам</h4>
+              <p>Структурная работа на результат с фокусом на формат и стратегию сдачи.</p>
+            </div>
+
+            <div class="course-card">
+              <span class="num">04</span>
+              <h4>Интенсивы и экспресс-программы</h4>
+              <p>Для быстрого прогресса в сжатые сроки перед поездкой, собеседованием или релокацией.</p>
+            </div>
+
+            <div class="course-card">
+              <span class="num">05</span>
+              <h4>Курсы для детей и подростков</h4>
+              <p>Современная подача материала, вовлечение и развитие языковой уверенности с раннего возраста.</p>
+            </div>
+
+            <div class="course-card">
+              <span class="num">06</span>
+              <h4>Индивидуальные программы</h4>
+              <p>Максимальная персонализация по графику, темпу, тематике и ожидаемому результату.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Примеры кейсов</h2>
+          <p>
+            Реальные задачи учеников оформлены в выделенные блоки, чтобы показать практическую ценность обучения.
+          </p>
+        </div>
+
+        <div class="cases-grid">
+          <article class="case">
+            <span class="case-label">Кейс · Карьера</span>
+            <h3>Подготовка к собеседованию</h3>
+            <p>
+              Разбираем реальные вопросы работодателей, тренируем самопрезентацию,
+              деловую лексику и уверенную речь в профессиональном контексте.
+            </p>
+          </article>
+
+          <article class="case">
+            <span class="case-label">Кейс · Релокация</span>
+            <h3>Переезд за границу</h3>
+            <p>
+              Отрабатываем бытовые диалоги, аренду жилья, оформление документов,
+              общение в банке, магазине, клинике и на работе.
+            </p>
+          </article>
+
+          <article class="case">
+            <span class="case-label">Кейс · Travel</span>
+            <h3>Путешествия без барьера</h3>
+            <p>
+              Учимся уверенно говорить в аэропорту, отеле, ресторане и в нестандартных
+              ситуациях, чтобы чувствовать себя свободно в любой стране.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Инструменты обучения</h2>
+          <p>
+            Сетка тегов подчеркивает технологичный подход: живое взаимодействие сочетается
+            с современными edtech-решениями.
+          </p>
+        </div>
+
+        <div class="tools-cloud">
+          <span class="tool">Разговорная практика</span>
+          <span class="tool">Интерактивные задания</span>
+          <span class="tool">Мини-группы</span>
+          <span class="tool">Онлайн-платформа</span>
+          <span class="tool">Домашние задания</span>
+          <span class="tool">Носители языка</span>
+          <span class="tool">Аудио и видео</span>
+          <span class="tool">Реальные диалоги</span>
+          <span class="tool">Подготовка к экзаменам</span>
+          <span class="tool">Индивидуальный план</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Результат, который вы почувствуете</h2>
+          <p>
+            Уже через несколько недель язык перестает быть абстрактной целью и становится
+            рабочим инструментом в вашей жизни.
+          </p>
+        </div>
+
+        <div class="results-grid">
+          <article class="result-card">
+            <strong>01</strong>
+            <h3>Уверенная речь</h3>
+            <p>Вы начнете свободнее говорить и выражать мысли в реальных повседневных и рабочих ситуациях.</p>
+          </article>
+
+          <article class="result-card">
+            <strong>02</strong>
+            <h3>Спокойствие без страха ошибок</h3>
+            <p>Вы перестанете бояться ошибок и начнете использовать язык естественно и без внутреннего напряжения.</p>
+          </article>
+
+          <article class="result-card">
+            <strong>03</strong>
+            <h3>Понимание живой речи</h3>
+            <p>Вы будете лучше понимать носителей языка, диалоги, фильмы, подкасты и живое общение.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="trial">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Сделайте первый шаг</h2>
+          <p>
+            Запишитесь на бесплатное пробное занятие и убедитесь сами:
+            изучение языка может быть интересным, эстетичным, комфортным и действительно эффективным.
+            Начните говорить на новом языке уже сегодня.
+          </p>
+          <a href="#" class="btn btn-primary">Записаться бесплатно</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Premium landing page · luxury / edtech style
+  </footer>
+</body>
+</html>
